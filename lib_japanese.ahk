@@ -16,10 +16,15 @@ get_input_method()
 ;; commands
 ;; --------
 
+IME_TOGGLE()
+{
+    IME_SET(!IME_GET())
+}
+
 toggle_input_method()
 { Global
     run_hooks("pre_command_hook")
-    IME_SET(!IME_GET())
+    send("IME_TOGGLE")
     run_hooks("post_command_hook")
 }
 
